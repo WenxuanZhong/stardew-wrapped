@@ -178,22 +178,23 @@
     /* 云海条带：在 panorama 之上叠 Cloudy_Ocean_BG，做出云层飘动 */
     content: '';
     position: fixed;
-    left: 0; right: 0; top: 4vh;
+    left: -8vw; right: -8vw; top: 4vh;
     height: 22vh;
     background-image: url('assets/stardew/sky/Cloudy_Ocean_BG.png');
-    background-repeat: repeat-x;
-    background-size: auto 100%;
-    background-position: 0 80%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center 30%;
     image-rendering: pixelated;
     opacity: 0.55;
     pointer-events: none;
     z-index: 0;
     mix-blend-mode: screen;
-    animation: cloud-pan 220s linear infinite;
+    animation: cloud-pan 180s ease-in-out infinite alternate;
+    will-change: transform;
   }
   @keyframes cloud-pan {
-    from { background-position: 0 80%; }
-    to   { background-position: 1500px 80%; }
+    from { transform: translateX(-3vw); }
+    to   { transform: translateX(3vw); }
   }
   .title-scene {
     position: fixed;

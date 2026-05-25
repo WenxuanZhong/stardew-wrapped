@@ -5,6 +5,7 @@ dist-public/
 # Local browser/test artifacts
 .tools/__pycache__/
 .tools/chrome-profile*/
+.tools/chrome-screenshot-profile*/
 .tools/chrome-release-browser-check-*/
 .tools/*.log
 .tools/*.err.log
