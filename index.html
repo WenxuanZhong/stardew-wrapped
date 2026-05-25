@@ -838,21 +838,29 @@
   #landing {
     text-align: center;
     width: 100%;
-    max-width: 620px;
-    padding: 24px 18px;
-    z-index: 1;
+    max-width: min(720px, calc(100vw - 32px));
+    min-height: 100vh;
+    padding: clamp(70px, 10vh, 92px) 18px clamp(42px, 8vh, 74px);
+    z-index: 6;
     animation: fadeIn 0.6s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    max-height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;
   }
+  #landing::-webkit-scrollbar { display: none; }
 
   .title-banner {
     /* 自绘木牌：星露谷风格但非原版 logo —— 三段拼板 + 四角铆钉 + 顶部叶饰 */
     position: relative;
-    width: min(460px, 92vw);
-    padding: 30px 26px 28px;
-    margin: 28px auto 22px;
+    width: min(468px, calc(100vw - 44px));
+    padding: 26px 26px 24px;
+    margin: 0 auto 14px;
     background:
       /* 四角铆钉（深色钉头 + 浅色环） */
       radial-gradient(circle at 14px 14px, #2a1606 3.2px, #6b3a18 4.6px, transparent 5.2px),
@@ -871,7 +879,8 @@
     box-shadow:
       inset 0 0 0 3px #d4a368,
       inset 0 0 0 5px #6b3a18,
-      6px 8px 0 rgba(0, 0, 0, 0.36);
+      6px 8px 0 rgba(0, 0, 0, 0.28),
+      0 16px 32px rgba(49, 73, 36, 0.18);
     image-rendering: pixelated;
     text-align: center;
     filter: none;
@@ -970,8 +979,12 @@
     letter-spacing: 2px;
   }
   .title-subtitle {
-    margin: -4px 0 22px;
+    margin: -2px 0 14px;
+    padding: 5px 12px 6px;
     color: #ffe9a0;
+    background: rgba(51, 33, 12, 0.42);
+    border: 1px solid rgba(255, 233, 160, 0.28);
+    border-radius: 4px;
     text-shadow:
       2px 2px 0 #5a3a1a,
       -1px 0 0 #5a3a1a,
@@ -982,6 +995,52 @@
     letter-spacing: 6px;
     text-align: center;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .landing-menu {
+    width: min(474px, calc(100vw - 34px));
+    position: relative;
+    display: grid;
+    gap: 12px;
+    padding: 14px;
+    background:
+      linear-gradient(180deg, rgba(255, 235, 188, 0.9), rgba(223, 158, 82, 0.92)),
+      repeating-linear-gradient(90deg, rgba(93, 48, 18, 0.08) 0 2px, transparent 2px 38px);
+    border: 3px solid #3b1f0a;
+    box-shadow:
+      inset 0 0 0 2px #f6cb84,
+      inset 0 0 0 5px #8a481d,
+      5px 7px 0 rgba(38, 29, 12, 0.24),
+      0 18px 34px rgba(54, 80, 34, 0.18);
+    image-rendering: pixelated;
+  }
+  .landing-menu::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(80, 37, 12, 0.12);
+    pointer-events: none;
+  }
+  .landing-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .landing-actions p {
+    margin: 0;
+    min-width: 0;
+  }
+  .landing-info {
+    width: min(474px, calc(100vw - 34px));
+    margin-top: 12px;
+    padding: 9px 12px 8px;
+    background:
+      linear-gradient(180deg, rgba(255, 249, 220, 0.88), rgba(241, 224, 168, 0.88));
+    border: 2px solid rgba(62, 36, 16, 0.62);
+    box-shadow:
+      inset 0 0 0 2px rgba(255, 255, 240, 0.55),
+      0 4px 0 rgba(0, 0, 0, 0.16);
   }
   html[lang="zh-CN"] .title-subtitle {
     font-family: 'Cubic 11', 'Press Start 2P', 'Noto Serif SC', 'Noto Sans SC', 'PingFang SC', serif;
@@ -1017,11 +1076,11 @@
   .upload-zone {
     /* SDV NEW/LOAD/Co-op 木质菜单按钮风格：四色木板 + 深色双层描边 + 投影 */
     position: relative;
-    min-height: 128px;
+    min-height: 118px;
     display: grid;
     grid-template-columns: 62px minmax(0, 1fr);
     align-items: center;
-    gap: 14px;
+    gap: 16px;
     text-align: left;
     background:
       linear-gradient(180deg,
@@ -1030,15 +1089,15 @@
         #d27d3a 14px, #d27d3a 56%,
         #e89a52 56%,  #e89a52 calc(100% - 14px),
         #f6cb84 calc(100% - 14px), #f6cb84 100%);
-    border: 4px solid #3f1808;
+    border: 3px solid #3f1808;
     box-shadow:
-      inset 0 0 0 3px #6b2e10,
-      inset 0 0 0 6px #d27d3a,
-      0 6px 0 rgba(0, 0, 0, 0.35);
-    padding: 22px 20px;
+      inset 0 0 0 2px #6b2e10,
+      inset 0 0 0 5px #d27d3a,
+      0 4px 0 rgba(0, 0, 0, 0.28);
+    padding: 18px 19px;
     cursor: pointer;
     transition: transform 0.12s, filter 0.12s, box-shadow 0.12s;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     color: #4a1f0a;
     image-rendering: pixelated;
   }
@@ -1046,16 +1105,16 @@
     transform: translate(-2px, -2px);
     filter: brightness(1.08);
     box-shadow:
-      inset 0 0 0 3px #6b2e10,
-      inset 0 0 0 6px #ffb86a,
-      8px 8px 0 rgba(0, 0, 0, 0.35);
+      inset 0 0 0 2px #6b2e10,
+      inset 0 0 0 5px #ffb86a,
+      6px 6px 0 rgba(0, 0, 0, 0.28);
   }
   .upload-zone:active {
     transform: translate(2px, 2px);
     box-shadow:
-      inset 0 0 0 3px #6b2e10,
-      inset 0 0 0 6px #d27d3a,
-      0 2px 0 rgba(0, 0, 0, 0.35);
+      inset 0 0 0 2px #6b2e10,
+      inset 0 0 0 5px #d27d3a,
+      0 2px 0 rgba(0, 0, 0, 0.28);
   }
   .upload-zone .icon { display: none; }
   .upload-pixel-icon {
@@ -1063,7 +1122,7 @@
     display: block;
     width: 44px;
     height: 50px;
-    margin-left: 4px;
+    margin-left: 2px;
     background: #fff7df;
     border: 4px solid var(--wood-dark);
     box-shadow:
@@ -1093,7 +1152,7 @@
   }
   .upload-zone p {
     font-family: 'Pixelify Sans', monospace;
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 700;
     margin: 0 0 6px;
     color: #3f1808;
@@ -1110,44 +1169,67 @@
 
   .upload-options {
     display: block;
-    margin: 0 auto 16px;
-    width: min(410px, 100%);
+    margin: 0;
+    width: 100%;
   }
   .upload-options .upload-zone { margin-bottom: 0; }
   .upload-options p { font-size: 20px; }
   .upload-options .hint { font-size: 12px; }
 
-  .demo-link {
-    display: inline-block;
-    color: var(--gold);
+  .demo-link,
+  .tutorial-link {
+    display: flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    color: #fff4cf;
     text-decoration: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     font-family: 'Pixelify Sans', monospace;
     font-weight: 600;
-    padding: 8px 16px;
-    border: 2px dashed rgba(245, 201, 63, 0.5);
-    border-radius: 4px;
-    margin-top: 8px;
+    line-height: 1.25;
+    padding: 9px 10px;
+    border: 2px solid #3b1f0a;
+    background:
+      linear-gradient(180deg, #8e5a2e 0%, #6b3a18 100%);
+    box-shadow:
+      inset 0 0 0 2px #d4a368,
+      0 3px 0 rgba(0, 0, 0, 0.24);
+    text-shadow: 1px 1px 0 #2a1606;
   }
-  .demo-link:hover { background: rgba(245, 201, 63, 0.1); }
+  .demo-link:hover,
+  .tutorial-link:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
+  .tutorial-link {
+    background: linear-gradient(180deg, #5f7b42 0%, #3f5e2c 100%);
+    box-shadow:
+      inset 0 0 0 2px #a9cf73,
+      0 3px 0 rgba(0, 0, 0, 0.24);
+  }
 
   .privacy-note {
-    margin-top: 28px;
+    margin: 0;
+    padding: 0;
     font-size: 12px;
-    color: rgba(255, 245, 224, 0.5);
-    line-height: 1.7;
+    color: rgba(59, 31, 10, 0.8);
+    line-height: 1.65;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
   }
   .landing-legal-note {
-    max-width: 520px;
-    margin: 12px auto 0;
-    padding: 8px 10px;
-    font-size: 11px;
+    max-width: none;
+    margin: 6px auto 0;
+    padding: 0 2px;
+    font-size: 10px;
     line-height: 1.55;
-    color: rgba(255, 245, 224, 0.72);
-    background: rgba(45, 30, 14, 0.42);
-    border: 1px solid rgba(255, 245, 224, 0.2);
-    border-radius: 4px;
+    color: rgba(59, 31, 10, 0.52);
+    background: transparent;
+    border: 0;
+    text-shadow: none;
   }
 
   .err {
@@ -5046,19 +5128,8 @@
   .save-btn:hover::after { left: 130%; }
   /* ========== Tutorial Modal ========== */
   .tutorial-link {
-    display: inline-block;
-    margin-top: 12px;
-    color: var(--gold);
-    text-decoration: none;
-    font-size: 13px;
-    font-family: 'Pixelify Sans', monospace;
-    font-weight: 600;
-    padding: 6px 14px;
-    border: 2px dashed rgba(245, 201, 63, 0.5);
-    border-radius: 4px;
     cursor: pointer;
   }
-  .tutorial-link:hover { background: rgba(245, 201, 63, 0.1); color: var(--cream); }
   .modal-mask {
     position: fixed;
     inset: 0;
@@ -5315,15 +5386,82 @@
     color: #ffe1a8;
     box-shadow: inset 0 0 0 2px #d4a368, 0 3px 0 #2a0a0a;
   }
+  body.landing-mode .lang-toggle {
+    top: 14px;
+    right: 20px;
+    opacity: 0.82;
+  }
+  body.landing-mode .audio-toggle-btn {
+    top: 14px;
+    right: 122px;
+    opacity: 0.82;
+  }
+  body.landing-mode .privacy-toggle-btn {
+    top: 14px;
+    right: 170px;
+    opacity: 0.82;
+  }
+  body.landing-mode .lang-toggle:hover,
+  body.landing-mode .audio-toggle-btn:hover,
+  body.landing-mode .privacy-toggle-btn:hover {
+    opacity: 1;
+  }
 
   /* ========== Mobile responsive ========== */
   @media (max-width: 540px) {
-    #landing { padding: 20px 16px; }
-    .title-banner { padding: 22px 18px 20px; margin: 20px auto 18px; }
+    #landing {
+      max-width: 100%;
+      padding: 72px 12px 28px;
+      justify-content: flex-start;
+      min-height: 100svh;
+    }
+    .title-banner {
+      width: min(356px, calc(100vw - 28px));
+      padding: 20px 16px 18px;
+      margin: 6px auto 10px;
+    }
     .title-banner h1 { font-size: 22px; line-height: 1.2; letter-spacing: 2px; }
-    html[lang="zh-CN"] .title-banner h1 { font-size: 33px; letter-spacing: 4px; }
+    html[lang="zh-CN"] .title-banner h1 { font-size: 31px; letter-spacing: 4px; }
     html[lang="en"] .title-banner h1 { font-size: 19px; letter-spacing: 1px; }
     .title-banner::before, .title-banner::after { width: 44px; height: 22px; top: -14px; }
+    .title-subtitle {
+      max-width: calc(100vw - 44px);
+      margin-bottom: 10px;
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+    .landing-menu {
+      width: min(356px, calc(100vw - 24px));
+      padding: 12px;
+      gap: 10px;
+      box-shadow:
+        inset 0 0 0 3px #f6cb84,
+        inset 0 0 0 6px #8a481d,
+        4px 6px 0 rgba(38, 29, 12, 0.25);
+    }
+    .landing-actions {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .demo-link,
+    .tutorial-link {
+      min-height: 42px;
+      font-size: 11px;
+    }
+    .landing-info {
+      width: min(356px, calc(100vw - 24px));
+      margin-top: 10px;
+      padding: 7px 10px 7px;
+    }
+    .privacy-note {
+      font-size: 10.5px;
+      line-height: 1.45;
+    }
+    .landing-legal-note {
+      margin-top: 4px;
+      font-size: 8.5px;
+      line-height: 1.35;
+    }
     .upload-options { flex-direction: column; }
     .upload-options .upload-zone {
       min-height: 108px;
@@ -5335,6 +5473,10 @@
       width: 36px;
       height: 42px;
       border-width: 3px;
+    }
+    .upload-zone .hint {
+      font-size: 11px;
+      line-height: 1.5;
     }
     .upload-options p { font-size: 17px; }
     .card {
@@ -5396,9 +5538,15 @@
       height: 4px;
     }
     .reset-btn { padding: 5px 10px; font-size: 11px; top: 16px; right: 12px; }
-    .lang-toggle { top: 56px; right: 12px; min-width: 78px; height: 28px; padding: 0 8px; font-size: 10px; }
-    .audio-toggle-btn { top: 56px; right: 96px; width: 32px; height: 28px; font-size: 14px; }
-    .privacy-toggle-btn { top: 56px; right: 134px; width: 32px; height: 28px; font-size: 14px; }
+    body.landing-mode .title-scene .title-lantern-string {
+      top: 46px;
+    }
+    .lang-toggle,
+    body.landing-mode .lang-toggle { top: 10px; right: 10px; min-width: 72px; height: 24px; padding: 0 7px; font-size: 9px; opacity: 0.84; }
+    .audio-toggle-btn,
+    body.landing-mode .audio-toggle-btn { top: 10px; right: 88px; width: 28px; height: 24px; font-size: 12px; opacity: 0.84; }
+    .privacy-toggle-btn,
+    body.landing-mode .privacy-toggle-btn { top: 10px; right: 122px; width: 28px; height: 24px; font-size: 12px; opacity: 0.84; }
     .game-hud {
       top: 12px;
       left: 10px;
@@ -5688,37 +5836,43 @@
   </div>
   <div class="title-subtitle" data-i18n="landing.subtitle">年 度 回 顾 · 鹈 鹕 镇 存 档 小 报</div>
 
-  <div class="upload-options">
-    <label for="file-input" class="upload-zone">
-      <span class="upload-pixel-icon" aria-hidden="true"></span>
-      <span>
-        <p data-i18n="landing.upload">上传主存档文件</p>
-        <p class="hint" data-i18n="landing.hint">选择无后缀的 FarmName_数字 文件，不要选 SaveGameInfo</p>
-      </span>
-    </label>
-  </div>
+  <div class="landing-menu">
+    <div class="upload-options">
+      <label for="file-input" class="upload-zone">
+        <span class="upload-pixel-icon" aria-hidden="true"></span>
+        <span>
+          <p data-i18n="landing.upload">上传主存档文件</p>
+          <p class="hint" data-i18n="landing.hint">选择无后缀的 FarmName_数字 文件，不要选 SaveGameInfo</p>
+        </span>
+      </label>
+    </div>
 
-  <input type="file" id="file-input">
+    <input type="file" id="file-input">
 
-  <p><a class="demo-link" id="demo-btn" data-i18n="landing.demo">没存档？先看演示效果 →</a></p>
-  <p style="margin-top: 4px;"><a class="tutorial-link" id="tutorial-btn" data-i18n="landing.tutorial">如何找到存档？</a></p>
+    <div class="landing-actions">
+      <p><a class="demo-link" id="demo-btn" data-i18n="landing.demo">没存档？先看演示效果 →</a></p>
+      <p><a class="tutorial-link" id="tutorial-btn" data-i18n="landing.tutorial">如何找到存档？</a></p>
+    </div>
 
-  <div id="err" class="err err-box" role="alert">
-    <div class="err-title" id="err-title"></div>
-    <div class="err-body" id="err-body"></div>
-    <div class="err-actions">
-      <button type="button" class="err-btn err-btn-primary" id="err-use-demo" data-i18n="upload.err.useDemo">用预设角色看 demo →</button>
-      <button type="button" class="err-btn" id="err-retry" data-i18n="upload.err.retry">换一个文件</button>
+    <div id="err" class="err err-box" role="alert">
+      <div class="err-title" id="err-title"></div>
+      <div class="err-body" id="err-body"></div>
+      <div class="err-actions">
+        <button type="button" class="err-btn err-btn-primary" id="err-use-demo" data-i18n="upload.err.useDemo">用预设角色看 demo →</button>
+        <button type="button" class="err-btn" id="err-retry" data-i18n="upload.err.retry">换一个文件</button>
+      </div>
     </div>
   </div>
 
-  <p class="privacy-note" data-i18n-html="landing.privacy">
-    存档解析在你的浏览器内完成，不上传服务器。<br>
-    安心使用，关掉就完事了。
-  </p>
-  <p class="landing-legal-note" data-i18n="landing.legal">
-    非官方粉丝作品，与 ConcernedApe 无关联；Stardew Valley 名称、图片与音频素材归各自权利方所有。
-  </p>
+  <div class="landing-info">
+    <p class="privacy-note" data-i18n-html="landing.privacy">
+      存档解析在你的浏览器内完成，不上传服务器。<br>
+      安心使用，关掉就完事了。
+    </p>
+    <p class="landing-legal-note" data-i18n="landing.legal">
+      非官方粉丝作品，与 ConcernedApe 无关联；Stardew Valley 名称、图片与音频素材归各自权利方所有。
+    </p>
+  </div>
 </div>
 
 <!-- ============== ACHIEVEMENTS MODAL ============== -->
