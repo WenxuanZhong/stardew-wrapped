@@ -226,34 +226,43 @@
   .title-scene .title-tree.t-right { right: 4%; transform: scale(2.2) scaleX(-1); animation: tree-sway-right 5.2s ease-in-out infinite; animation-delay: -2.6s; }
   .title-scene .title-tree-root {
     position: absolute;
-    bottom: clamp(43px, 7.35vh, 82px);
-    width: 80px;
+    bottom: clamp(44px, 7.45vh, 84px);
+    width: 34px;
     height: 18px;
-    background-image: url('assets/stardew/trees/tree1_spring.png');
-    background-repeat: no-repeat;
-    background-position: 0 -86px;
-    background-size: 144px 160px;
+    background: transparent;
     image-rendering: pixelated;
     transform: scale(2.2);
     transform-origin: bottom center;
     z-index: 4;
-    filter: drop-shadow(2px 4px 0 rgba(0,0,0,0.24));
+    filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.22));
+  }
+  .title-scene .title-tree-root::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 3px;
+    height: 9px;
+    background:
+      linear-gradient(90deg, transparent 0 5px, #6d3f1f 5px 10px, transparent 10px 14px, #7b4924 14px 19px, transparent 19px),
+      linear-gradient(90deg, #5a341b 0 8px, transparent 8px 13px, #5a341b 13px 21px, transparent 21px);
+    clip-path: polygon(0 60%, 24% 28%, 44% 54%, 58% 18%, 100% 63%, 100% 100%, 0 100%);
   }
   .title-scene .title-tree-root::after {
     content: '';
     position: absolute;
-    left: -10px;
-    right: -12px;
-    bottom: -4px;
-    height: 11px;
+    left: -9px;
+    right: -9px;
+    bottom: -2px;
+    height: 12px;
     background:
-      radial-gradient(ellipse at 18% 100%, rgba(36, 86, 25, 0.9) 0 45%, transparent 47%),
-      radial-gradient(ellipse at 48% 100%, rgba(55, 120, 32, 0.9) 0 43%, transparent 45%),
-      radial-gradient(ellipse at 78% 100%, rgba(38, 94, 27, 0.86) 0 42%, transparent 44%);
+      radial-gradient(ellipse at 18% 100%, rgba(46, 100, 31, 0.94) 0 42%, transparent 45%),
+      radial-gradient(ellipse at 46% 100%, rgba(73, 134, 39, 0.96) 0 46%, transparent 49%),
+      radial-gradient(ellipse at 77% 100%, rgba(42, 93, 30, 0.9) 0 39%, transparent 42%);
     image-rendering: pixelated;
   }
-  .title-scene .title-tree-root.root-left { left: 3%; }
-  .title-scene .title-tree-root.root-right { right: 4%; transform: scale(2.2) scaleX(-1); }
+  .title-scene .title-tree-root.root-left { left: calc(3% + 23px); }
+  .title-scene .title-tree-root.root-right { right: calc(4% + 23px); transform: scale(2.2) scaleX(-1); }
   @keyframes tree-sway {
     0%, 100% { transform: scale(2.2) rotate(0deg); }
     50%      { transform: scale(2.2) rotate(0.6deg); }
@@ -5654,13 +5663,13 @@
     <div class="title-grass-tuft" style="--gt-x: 97%; --gt-y: 39px; --gt-scale: 1.15; --gt-bgx: -22px; --gt-bgy: -20px; --gt-delay: -2.4s; --gt-opacity: 0.68;"></div>
     <div class="title-flower title-flower--white"  style="--gt-x: 13%;"></div>
     <div class="title-flower title-flower--yellow" style="--gt-x: 33%;"></div>
-    <div class="title-flower title-flower--pink"   style="--gt-x: 57%;"></div>
+    <div class="title-flower title-flower--white"  style="--gt-x: 57%;"></div>
     <div class="title-flower title-flower--white"  style="--gt-x: 72%;"></div>
     <div class="title-flower title-flower--yellow" style="--gt-x: 88%;"></div>
-    <!-- M-A2 Junimo 小精灵：5 个颜色，散落在草坪里，弹跳节奏错开 -->
-    <div class="title-junimo j-purple" style="--jx: 14%; --jy: clamp(34px, 5.5vh, 64px); --jdelay: -0.3s;"></div>
+    <!-- M-A2 Junimo 小精灵：避开紫红色，散落在草坪里，弹跳节奏错开 -->
+    <div class="title-junimo j-green"  style="--jx: 14%; --jy: clamp(34px, 5.5vh, 64px); --jdelay: -0.3s;"></div>
     <div class="title-junimo j-yellow" style="--jx: 36%; --jy: clamp(54px, 8.2vh, 88px); --jdelay: -0.9s;"></div>
-    <div class="title-junimo j-red"    style="--jx: 49%; --jy: clamp(28px, 4.5vh, 58px); --jdelay: -1.5s;"></div>
+    <div class="title-junimo j-blue"   style="--jx: 49%; --jy: clamp(28px, 4.5vh, 58px); --jdelay: -1.5s;"></div>
     <div class="title-junimo j-green"  style="--jx: 66%; --jy: clamp(46px, 7.2vh, 78px); --jdelay: -0.5s;"></div>
     <div class="title-junimo j-blue"   style="--jx: 81%; --jy: clamp(32px, 5vh, 62px); --jdelay: -1.1s;"></div>
   </div>
