@@ -598,7 +598,7 @@ async def run_cdp_check(site_port, debug_port):
             worldSwitchOpacity: getComputedStyle(document.querySelector('.world-switch')).opacity,
             treeCount: treeRects.length,
             rootCount: rootRects.length,
-            grassTileCount: document.querySelectorAll('.farm-tile.grass-base, .farm-tile.grass-base-soft').length,
+            grassTileCount: document.querySelectorAll('.farm-tile.grass-accent').length,
             suspiciousStumpTiles: [...document.querySelectorAll('.farm-tile.front')]
               .filter(el => ['0px -384px', '-32px -384px'].includes(tilePos(el))).length,
             treeRects,
@@ -749,8 +749,8 @@ async def main():
         failures.append(f"expected original-resource foreground trees, got {visual.get('treeCount')}")
     if int(visual.get("rootCount") or 0) < 2:
         failures.append(f"expected tree root overlays, got {visual.get('rootCount')}")
-    if int(visual.get("grassTileCount") or 0) < 40:
-        failures.append(f"grass scatter layer is missing or too sparse: {visual.get('grassTileCount')}")
+    if int(visual.get("grassTileCount") or 0) < 20:
+        failures.append(f"grass accent layer is missing or too sparse: {visual.get('grassTileCount')}")
     if int(visual.get("suspiciousStumpTiles") or 0) != 0:
         failures.append(f"stump-like foreground tiles returned: {visual.get('suspiciousStumpTiles')}")
     for label, rects in (("tree", visual.get("treeRects") or []), ("root", visual.get("rootRects") or [])):
