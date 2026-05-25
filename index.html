@@ -350,27 +350,27 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: clamp(150px, 24vh, 260px);
-    /* 底色只做柔和地面，小草由独立 sprite 铺出来，避免整块贴图硬切。 */
+    height: clamp(120px, 19vh, 190px);
+    /* 底色只做轻微地面阴影，小草由独立 sprite 铺出来，避免整块贴图硬切。 */
     background:
       linear-gradient(180deg,
         rgba(116, 170, 75, 0) 0,
-        rgba(112, 166, 73, 0.16) 28%,
-        rgba(84, 135, 55, 0.48) 66%,
-        rgba(31, 70, 28, 0.74) 100%),
+        rgba(111, 166, 74, 0.08) 34%,
+        rgba(83, 139, 58, 0.28) 70%,
+        rgba(42, 92, 37, 0.56) 100%),
       linear-gradient(90deg,
-        rgba(132, 184, 83, 0.18),
-        rgba(65, 123, 47, 0.08) 36%,
-        rgba(128, 178, 82, 0.16) 74%,
-        rgba(45, 98, 39, 0.20));
+        rgba(132, 184, 83, 0.08),
+        rgba(65, 123, 47, 0.05) 36%,
+        rgba(128, 178, 82, 0.08) 74%,
+        rgba(45, 98, 39, 0.10));
     background-repeat: no-repeat;
     background-size: 100% 100%, 100% 100%;
     background-color: transparent;
     image-rendering: pixelated;
     pointer-events: none;
     z-index: 1;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,0.08) 20px, rgba(0,0,0,0.55) 72px, #000 122px);
-    mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,0.08) 20px, rgba(0,0,0,0.55) 72px, #000 122px);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,0.06) 18px, rgba(0,0,0,0.42) 68px, #000 110px);
+    mask-image: linear-gradient(180deg, transparent 0, rgba(0,0,0,0.06) 18px, rgba(0,0,0,0.42) 68px, #000 110px);
   }
   /* 草坪顶端：羽化淡入，柔和过渡到 panorama 山脚而不是硬切边 */
   .title-scene .title-ground::before {
@@ -378,20 +378,9 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: -30px;
-    height: 36px;
-    background:
-      radial-gradient(ellipse at 4% 100%, rgba(55, 108, 36, 0.58) 0 34%, transparent 36%),
-      radial-gradient(ellipse at 16% 100%, rgba(48, 96, 34, 0.52) 0 29%, transparent 31%),
-      radial-gradient(ellipse at 31% 100%, rgba(70, 126, 43, 0.56) 0 36%, transparent 38%),
-      radial-gradient(ellipse at 47% 100%, rgba(45, 92, 31, 0.48) 0 30%, transparent 32%),
-      radial-gradient(ellipse at 64% 100%, rgba(67, 123, 42, 0.54) 0 35%, transparent 37%),
-      radial-gradient(ellipse at 82% 100%, rgba(50, 99, 34, 0.50) 0 31%, transparent 33%),
-      radial-gradient(ellipse at 96% 100%, rgba(65, 120, 40, 0.54) 0 34%, transparent 36%),
-      linear-gradient(180deg,
-        rgba(80, 130, 50, 0) 0,
-        rgba(90, 139, 53, 0.32) 62%,
-        rgba(103, 153, 57, 0.82) 100%);
+    top: -28px;
+    height: 42px;
+    background: linear-gradient(180deg, transparent 0, rgba(94, 143, 58, 0.14) 68%, rgba(92, 143, 58, 0.34) 100%);
     pointer-events: none;
   }
   /* 草坪底部暗化：远处的近景压暗，让地面更有"地"的感觉 */
@@ -401,12 +390,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 38%;
+    height: 34%;
     background:
-      radial-gradient(ellipse at 12% 100%, rgba(34, 76, 24, 0.36) 0 21%, transparent 23%),
-      radial-gradient(ellipse at 43% 100%, rgba(44, 94, 29, 0.28) 0 18%, transparent 20%),
-      radial-gradient(ellipse at 82% 100%, rgba(29, 66, 22, 0.30) 0 24%, transparent 26%),
-      linear-gradient(180deg, transparent, rgba(20, 36, 14, 0.48));
+      radial-gradient(ellipse at 12% 100%, rgba(34, 76, 24, 0.22) 0 18%, transparent 21%),
+      radial-gradient(ellipse at 52% 100%, rgba(44, 94, 29, 0.16) 0 16%, transparent 19%),
+      radial-gradient(ellipse at 84% 100%, rgba(29, 66, 22, 0.20) 0 20%, transparent 23%),
+      linear-gradient(180deg, transparent, rgba(20, 36, 14, 0.26));
     pointer-events: none;
   }
   .title-scene .title-grass-field {
@@ -414,7 +403,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 118px;
+    height: 92px;
     pointer-events: none;
     z-index: 2;
     overflow: hidden;
@@ -436,7 +425,7 @@
     background-size: 66px 240px;
     animation: tuft-sway 4s ease-in-out infinite;
     animation-delay: var(--gt-delay, 0s);
-    filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.28));
+    filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.18));
     opacity: var(--gt-opacity, 0.92);
   }
   @keyframes tuft-sway {
@@ -586,6 +575,7 @@
      legs（黄色脚）位置在两帧间错开 1px 制造迈步感 */
   .title-scene .title-chicken {
     position: absolute;
+    display: none;
     bottom: clamp(38px, 6vh, 72px);
     left: -40px;
     width: 30px;
@@ -6868,18 +6858,17 @@ function buildTitleGrassField(force = false) {
   field.dataset.key = key;
   field.replaceChildren();
 
-  const count = Math.min(96, Math.max(56, Math.floor(width / 20)));
+  const count = Math.min(58, Math.max(34, Math.floor(width / 30)));
   const frames = [
     [0, 0], [-22, 0], [-44, 0],
     [0, -20], [-22, -20], [-44, -20],
-    [0, -120], [-22, -120], [-44, -120],
   ];
   for (let i = 0; i < count; i++) {
-    const yBand = stableValue(i, count, 904) < 0.58 ? 0 : (stableValue(i, count, 917) < 0.72 ? 1 : 2);
-    const yMin = [0, 24, 54][yBand];
-    const yMax = [34, 72, 106][yBand];
+    const yBand = stableValue(i, count, 904) < 0.7 ? 0 : (stableValue(i, count, 917) < 0.82 ? 1 : 2);
+    const yMin = [0, 18, 42][yBand];
+    const yMax = [28, 54, 84][yBand];
     const y = Math.round(yMin + stableValue(i, count, 931) * (yMax - yMin));
-    const scale = Math.max(0.72, Math.min(2.15, 0.88 + (1 - y / 120) * 0.95 + stableValue(i, count, 949) * 0.42));
+    const scale = Math.max(0.72, Math.min(1.72, 0.78 + (1 - y / 96) * 0.58 + stableValue(i, count, 949) * 0.34));
     const frame = stablePick(frames, i, count, 967);
     const tuft = document.createElement('span');
     tuft.className = 'title-grass-tuft title-grass-tuft--field';
@@ -6926,7 +6915,6 @@ function buildFarmForeground(season = currentForegroundSeason(), force = false) 
   const grassFrames = [
     [0, 0], [-22, 0], [-44, 0],
     [0, -20], [-22, -20], [-44, -20],
-    [0, -120], [-22, -120], [-44, -120],
   ];
   const placeLooseGrass = (left, bottom, scale, frame, className = 'sway') => {
     const safeLeft = Math.max(4, Math.min(width - 4, left));
@@ -6974,18 +6962,18 @@ function buildFarmForeground(season = currentForegroundSeason(), force = false) 
     const base = x + treeWidth / 2;
     placeLooseGrass(base + (flip > 0 ? 14 : -28), 5, 1.72, [-22, 0], 'sway');
     placeLooseGrass(base + (flip > 0 ? -38 : 18), 6, 1.42, [-44, -20], 'sway');
-    placeLooseGrass(base + (flip > 0 ? -16 : -8), tileSize * 0.52, 1.18, [0, -120], 'sway soft');
-    placeLooseGrass(base + (flip > 0 ? 36 : -48), 2, 0.92, [-22, -120], 'sway soft');
+    placeLooseGrass(base + (flip > 0 ? -16 : -8), tileSize * 0.52, 1.18, [0, -20], 'sway soft');
+    placeLooseGrass(base + (flip > 0 ? 36 : -48), 2, 0.92, [-22, -20], 'sway soft');
   };
   addTreeFoot(leftTreeX, 1);
   if (width >= 720) addTreeFoot(rightTreeX, -1);
 
-  const decorCount = Math.min(70, Math.max(34, Math.floor(width / 18)));
+  const decorCount = Math.min(52, Math.max(28, Math.floor(width / 26)));
   for (let i = 0; i < decorCount; i++) {
     const left = stableValue(i, cols, seasonSalt + 401) * width;
     const band = i % 7 === 0 ? 0.68 : (i % 4 === 0 ? 0.46 : 0.28);
     const bottom = 2 + stableValue(i, rows, seasonSalt + 503) * Math.max(22, height * band);
-    const scale = Math.max(0.74, Math.min(1.82, 0.82 + (1 - bottom / height) * 0.52 + stableValue(i, rows, seasonSalt + 557) * 0.48));
+    const scale = Math.max(0.74, Math.min(1.58, 0.78 + (1 - bottom / height) * 0.42 + stableValue(i, rows, seasonSalt + 557) * 0.32));
     const frame = stablePick(grassFrames, i, rows, seasonSalt + 311);
     const soft = stableValue(i, rows, seasonSalt + 607) < 0.38 || bottom > height * 0.44;
     placeLooseGrass(left, bottom, scale, frame, `sway${soft ? ' soft' : ''}`);
