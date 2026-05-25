@@ -1,0 +1,33 @@
+# Generated deployment bundles
+dist-full/
+dist-public/
+
+# Local browser/test artifacts
+.tools/__pycache__/
+.tools/chrome-profile*/
+.tools/chrome-release-browser-check-*/
+.tools/*.log
+.tools/*.err.log
+.tools/*.out.log
+.tools/*.png
+.tools/*.jpg
+.tools/*.jpeg
+
+# Local asset extraction/transcoding workspaces
+.tools/ffmpeg/
+.tools/hud_test/
+.tools/pcm_tmp/
+.tools/previews/
+.tools/unxwb/
+.tools/vgm/
+.tools/xnb_stage/
+.tools/xnbcli/
+.tools/xnbcli-bin/
+.tools/*.wav
+.tools/*.ogg
+
+# Dependency/cache output
+node_modules/
+.wrangler/
+.DS_Store
+Thumbs.db

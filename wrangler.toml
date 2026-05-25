@@ -1,0 +1,4 @@
+name = "stardew-wrapped"
+pages_build_output_dir = "dist-full"
+compatibility_date = "2026-05-25"
+

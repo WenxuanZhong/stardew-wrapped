@@ -1,0 +1,16 @@
+{
+  "name": "Stardew Wrapped",
+  "short_name": "Wrapped",
+  "description": "A fan-made, browser-only Stardew Valley save recap.",
+  "start_url": ".",
+  "display": "browser",
+  "background_color": "#2a3759",
+  "theme_color": "#2a3759",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}

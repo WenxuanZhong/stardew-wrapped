@@ -1,0 +1,176 @@
+sample @ soundsOffset: 7b6a0000ffff856a00000601
+{
+  "ghost": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 8
+  },
+  "eat": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 20
+  },
+  "furnace": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 28
+  },
+  "fireball": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 51
+  },
+  "rain": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 84
+  },
+  "Cloth": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 111
+  },
+  "spring2": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 106
+  },
+  "axchop": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 65
+  },
+  "select": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 69
+  },
+  "monsterdead": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 92
+  },
+  "rockGolemDie": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 120
+  },
+  "bigDrums": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 124
+  },
+  "dustMeep": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 0
+  },
+  "button1": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 198
+  },
+  "AbigailFluteDuet": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 218
+  },
+  "keyboardTyping": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 228
+  },
+  "dogWhining": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 252
+  },
+  "cacklingWitch": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 262
+  },
+  "dog_bark": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 268
+  },
+  "fall_day_ambient": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 272
+  },
+  "spring_night_ambient": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 286
+  },
+  "Saloon1": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 293
+  },
+  "Stadium_cheer": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 297
+  },
+  "parrot": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 301
+  },
+  "miniharp_note": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 309
+  },
+  "movieTheater": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 316
+  },
+  "trashbear": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 335
+  },
+  "fieldofficeTentMusic": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 115
+  },
+  "magma_sprite_hit": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 124
+  },
+  "fishBite_alternate_1": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 351
+  },
+  "VolcanoMines2": {
+    "complex": false,
+    "wave_bank": 0,
+    "track": 355
+  },
+  "parachute": {
+    "complex": false,
+    "wave_bank": 1,
+    "track": 0
+  },
+  "magic_arrow": {
+    "complex": false,
+    "wave_bank": 1,
+    "track": 2
+  },
+  "windstorm": {
+    "complex": false,
+    "wave_bank": 1,
+    "track": 6
+  }
+}
+file size: 32062
+tool=46 format=43 simple=377 complex=56 total=433 sounds=465 waveBanks=2
+cue_names parsed: 433

@@ -1,0 +1,19 @@
+{
+  "name": "stardew-wrapped",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A fan-made, browser-only Stardew Valley save recap.",
+  "scripts": {
+    "build:full": "node .tools/build-full.mjs",
+    "build:public": "node .tools/build-public.mjs",
+    "check:release": "node .tools/release-check.mjs",
+    "check:browser": "python .tools/release-browser-check.py",
+    "check:hosted": "node .tools/hosted-check.mjs",
+    "release": "npm run build:full && npm run build:public && npm run check:release",
+    "deploy:cf": "wrangler pages deploy dist-full --project-name stardew-wrapped"
+  },
+  "devDependencies": {
+    "wrangler": "^4.94.0"
+  }
+}
