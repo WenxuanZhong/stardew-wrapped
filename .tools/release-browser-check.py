@@ -600,6 +600,8 @@ async def run_cdp_check(site_port, debug_port):
             rootCount: rootRects.length,
             looseGrassCount: document.querySelectorAll('.farm-loose-grass').length,
             grassTileCount: document.querySelectorAll('.farm-tile.grass-accent').length,
+            purpleGrassFrameCount: [...document.querySelectorAll('.farm-loose-grass, .title-grass-tuft')]
+              .filter(el => getComputedStyle(el).backgroundPosition.includes('-100px')).length,
             suspiciousStumpTiles: [...document.querySelectorAll('.farm-tile.front')]
               .filter(el => ['0px -384px', '-32px -384px'].includes(tilePos(el))).length,
             treeRects,
@@ -754,6 +756,8 @@ async def main():
         failures.append(f"loose grass sprite layer is missing or too sparse: {visual.get('looseGrassCount')}")
     if int(visual.get("grassTileCount") or 0) != 0:
         failures.append(f"square grass tile accents returned: {visual.get('grassTileCount')}")
+    if int(visual.get("purpleGrassFrameCount") or 0) != 0:
+        failures.append(f"purple grass sprite frames returned: {visual.get('purpleGrassFrameCount')}")
     if int(visual.get("suspiciousStumpTiles") or 0) != 0:
         failures.append(f"stump-like foreground tiles returned: {visual.get('suspiciousStumpTiles')}")
     for label, rects in (("tree", visual.get("treeRects") or []), ("root", visual.get("rootRects") or [])):
